@@ -5,6 +5,7 @@ import TicketFare from './components/Home/TicketFare/TicketFare';
 import Users from './components/Home/Users/Users';
 import MetroRoutes from './components/Home/MetroRoutes/MetroRoutes';
 import Generate from './components/Home/GenerateTicket/GenerateTicket';
+import PurchasedTickets from './components/Home/PurchasedTickets/PurchasedTickets';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/ticketfare" element={<TicketFare />} />
         <Route path="/users" element={<Users />} />
         <Route path="/generate" element={<Generate />} />
+        <Route path="/purchasedTickets" element={<PurchasedTickets />} />
       </Routes>
     </Router>
   );

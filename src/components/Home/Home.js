@@ -27,9 +27,9 @@ const Home = () => {
           <Link to="/ticketfare">
             <button className="home-button">Ticket Fare</button>
           </Link>
-          {/* <Link to="/users">
-            <button className="home-button">Registered Users</button>
-          </Link> */}
+          <Link to="/purchasedTickets">
+            <button className="home-button">Purchased Tickets</button>
+          </Link>
           <Link to="/generate">
             <button className="home-button">Generate Ticket</button>
           </Link>

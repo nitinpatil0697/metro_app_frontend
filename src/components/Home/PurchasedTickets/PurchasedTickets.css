@@ -1,0 +1,105 @@
+
+.tickets-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: url('E:\Career\React\metro-ticket-vending\public\images\yves-moret-3vSGseoQj40-unsplash.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .purchased-ticket-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 8px;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+}
+  /* Form styling */
+  .tickets-form {
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.6); /* Slightly darker black fade effect */
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .tickets-label {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  
+  .tickets-input {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 94%;
+  }
+  
+  .tickets-button {
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  
+  .tickets-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Styling for the ticket list */
+  .tickets-list {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 800px;
+    background-color: rgba(0, 0, 0, 0.89);
+    height: 900px;
+    width: 500px;
+    border-radius: 25px;
+   
+  }
+  
+  .tickets-list h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  .tickets-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .tickets-list li {
+    margin: 10px 0;
+    font-size: 16px;
+    padding: 10px;
+    /* background-color: rgba(255, 255, 255, 0.2); */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+  }
+  
+  .tickets-list li:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+ 
