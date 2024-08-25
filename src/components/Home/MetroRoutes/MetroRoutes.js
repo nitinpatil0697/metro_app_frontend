@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchData } from '../../../utils/ApiHandlers'; // Adjust path as needed
+import { fetchData } from '../../../utils/ApiHandlers'; 
 import './MetroRoutes.css';
 
 const MetroRoutes = () => {

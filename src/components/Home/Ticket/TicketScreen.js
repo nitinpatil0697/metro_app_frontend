@@ -1,5 +1,5 @@
 import React from 'react';
-import './TicketScreen.css'; // Import the CSS for TicketScreen component
+import './TicketScreen.css';
 
 const TicketScreen = ({ ticketInfo }) => {
   return (
