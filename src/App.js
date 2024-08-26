@@ -6,12 +6,14 @@ import Users from './components/Home/Users/Users';
 import MetroRoutes from './components/Home/MetroRoutes/MetroRoutes';
 import Generate from './components/Home/GenerateTicket/GenerateTicket';
 import PurchasedTickets from './components/Home/PurchasedTickets/PurchasedTickets';
+import Register from './components/Home/Register/Register';
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path='/register' element={<Register/>} />
         <Route path="/metroroutes" element={<MetroRoutes />} />
         <Route path="/ticketfare" element={<TicketFare />} />
         <Route path="/users" element={<Users />} />
