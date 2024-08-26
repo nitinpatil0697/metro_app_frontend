@@ -39,6 +39,8 @@ const GenerateTicket = () => {
     }
   };
 
+  
+
   return (
     <div className="generate-ticket-background">
       {ticketInfo ? (
