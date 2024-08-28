@@ -3,7 +3,7 @@ import axios from 'axios';
 import './Register.css';
 
 const Register = () => {
-    const API_URL = 'http://localhost:8080/user/register'
+const API_URL = 'http://localhost:8080/user/register'
   const [formData, setFormData] = useState({
     first_name: '',
     email: '',
@@ -48,7 +48,7 @@ const Register = () => {
         setSuccessMessage('Registration successful!');
         setFormData({
           first_name: '',
-          last_name: '', // Added last_name here
+          last_name: '', 
           email: '',
           password: '',
           confirmPassword: '',

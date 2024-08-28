@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import TicketScreen from '../Ticket/TicketScreen';
-import './GenerateTicket.css';
+import React, { useState } from "react";
+import axios from "axios";
+import TicketScreen from "../Ticket/TicketScreen";
+import "./GenerateTicket.css";
+import { Link } from "react-router-dom";
 
 const GenerateTicket = () => {
-  const API_URL = 'http://localhost:8080/vendingMachine/generateTicket';
+  const API_URL = "http://localhost:8080/vendingMachine/generateTicket";
   const [formData, setFormData] = useState({
-    user_name: '',
-    route_name: 'Red Line',
-    ticket_type: 'Single Ride',
+    user_name: "",
+    route_name: "Red Line",
+    ticket_type: "Single Ride",
     peak_hour: false,
   });
 
@@ -35,11 +36,9 @@ const GenerateTicket = () => {
       const response = await axios.post(API_URL, formData);
       setTicketInfo(response.data.result);
     } catch (error) {
-      console.error('Error generating ticket:', error.message);
+      console.error("Error generating ticket:", error.message);
     }
   };
-
-  
 
   return (
     <div className="generate-ticket-background">
@@ -101,7 +100,11 @@ const GenerateTicket = () => {
                 onChange={handleCheckboxChange}
               />
             </div>
-            <button type="submit" className="submit-button">Generate Ticket</button>
+            <Link to="/paymentinitiate">
+              <button type="submit" className="submit-button">
+                Proceed To Pay
+              </button>
+            </Link>
           </form>
         </div>
       )}

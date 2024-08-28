@@ -7,6 +7,7 @@ import MetroRoutes from './components/Home/MetroRoutes/MetroRoutes';
 import Generate from './components/Home/GenerateTicket/GenerateTicket';
 import PurchasedTickets from './components/Home/PurchasedTickets/PurchasedTickets';
 import Register from './components/Home/Register/Register';
+import PaymentPage from './components/Home/GenerateTicket/Payment/PaymentPage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/users" element={<Users />} />
         <Route path="/generate" element={<Generate />} />
         <Route path="/purchasedTickets" element={<PurchasedTickets />} />
+        <Route path="/paymentinitiate" element={<PaymentPage />} />
       </Routes>
     </Router>
   );
