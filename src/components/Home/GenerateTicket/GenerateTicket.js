@@ -100,11 +100,7 @@ const GenerateTicket = () => {
                 onChange={handleCheckboxChange}
               />
             </div>
-            <Link to="/paymentinitiate">
-              <button type="submit" className="submit-button">
-                Proceed To Pay
-              </button>
-            </Link>
+            <button type="submit" className="submit-button">Generate Ticket</button>
           </form>
         </div>
       )}

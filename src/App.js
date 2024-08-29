@@ -8,6 +8,8 @@ import Generate from './components/Home/GenerateTicket/GenerateTicket';
 import PurchasedTickets from './components/Home/PurchasedTickets/PurchasedTickets';
 import Register from './components/Home/Register/Register';
 import PaymentPage from './components/Home/GenerateTicket/Payment/PaymentPage';
+import PaymentSuccess from './components/Home/GenerateTicket/Payment/PaymentSuccess';
+import PaymentFailed from './components/Home/GenerateTicket/Payment/PaymentFailed';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Route path="/generate" element={<Generate />} />
         <Route path="/purchasedTickets" element={<PurchasedTickets />} />
         <Route path="/paymentinitiate" element={<PaymentPage />} />
+        <Route path="/paymentsuccess" element={<PaymentSuccess/>} />
+        <Route path="/paymentfailed" element={<PaymentFailed/>} />
       </Routes>
     </Router>
   );

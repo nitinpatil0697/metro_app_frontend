@@ -1,7 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './TicketScreen.css';
 
 const TicketScreen = ({ ticketInfo }) => {
+  const fare = ticketInfo.fare;
+  const currency = "INR";
+  console.log("TicketScreen fare : " + fare);
   return (
     <div className="ticket-screen-background">
       <div className="ticket-screen-container">
@@ -12,7 +16,16 @@ const TicketScreen = ({ ticketInfo }) => {
           <p><strong>Ticket Type:</strong> {ticketInfo.type}</p>
           <p><strong>Fare:</strong> ₹{ticketInfo.fare}</p>
           <p><strong>Purchase Time:</strong> {new Date(ticketInfo.purchase_time).toLocaleString()}</p>
+        
         </div>
+        
+        <br/> 
+      
+        <Link to={`/paymentinitiate?amount=${fare}&currency=${currency}`}>
+              <button type="submit" className="submit-button">
+                Proceed To Pay
+              </button>
+      </Link>
       </div>
     </div>
   );
