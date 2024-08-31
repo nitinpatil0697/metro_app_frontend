@@ -8,9 +8,9 @@ import { useLocation } from 'react-router-dom';
 // Initialize Stripe with your publishable key
 const stripePromise = loadStripe('pk_test_51BTUDGJAJfZb9HEBwDg86TN1KNprHjkfipXmEDMb0gSCassK5T3ZfxsAbcgKVmAIXF7oZ6ItlZZbXO6idTHE67IM007EwQ4uN3');
 
-const PaymentPage = () => {
+const PaymentPage = ({ticketInfo}) => {
+  console.log(ticketInfo)
   const location = useLocation()
-  const fare = location.state?.amount
   const queryParams = new URLSearchParams(location.search);
   const amount = queryParams.get('amount');
   const currency = queryParams.get('currency');
@@ -21,6 +21,7 @@ const PaymentPage = () => {
     axios.post('http://localhost:8080/payment/initiate', {
       amount: amount,
       currency: currency,
+      ticketDetails : ticketInfo
     })
     .then(response => {
       setClientSecret(response.data.clientSecret);

@@ -4,7 +4,7 @@ import TicketScreen from "../Ticket/TicketScreen";
 import "./GenerateTicket.css";
 import { Link } from "react-router-dom";
 
-const GenerateTicket = () => {
+const GenerateTicket = ({ticketInfo,setTicketInfo}) => {
   const API_URL = "http://localhost:8080/vendingMachine/generateTicket";
   const [formData, setFormData] = useState({
     user_name: "",
@@ -13,7 +13,7 @@ const GenerateTicket = () => {
     peak_hour: false,
   });
 
-  const [ticketInfo, setTicketInfo] = useState(null);
+  //const [ticketInfo, setTicketInfo] = useState(null);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

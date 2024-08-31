@@ -39,7 +39,7 @@ const CheckoutForm = ({ clientSecret }) => {
         },
       });
   
-      if (true) {
+      if (error) {
         setError(error.message);
         setProcessing(false);
         navigate('/paymentfailed')
