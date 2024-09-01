@@ -15,13 +15,14 @@ const PaymentPage = ({ticketInfo}) => {
   const amount = queryParams.get('amount');
   const currency = queryParams.get('currency');
   const [clientSecret, setClientSecret] = useState('');
+  
 
   useEffect(() => {
-    // Fetch the clientSecret from the backend when the component mounts
+    console.log("Calling initiate payment")
     axios.post('http://localhost:8080/payment/initiate', {
       amount: amount,
       currency: currency,
-      ticketDetails : ticketInfo
+      ticket_details : ticketInfo
     })
     .then(response => {
       setClientSecret(response.data.clientSecret);
@@ -36,7 +37,7 @@ const PaymentPage = ({ticketInfo}) => {
       <h1>Metro Ticket Payment</h1>
       {clientSecret ? (
         <Elements stripe={stripePromise}>
-          <CheckoutForm clientSecret={clientSecret} />
+          <CheckoutForm clientSecret={clientSecret} ticketInfo={ticketInfo} />
         </Elements>
       ) : (
         <div>Loading...</div>

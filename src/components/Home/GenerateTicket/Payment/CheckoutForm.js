@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import { useNavigate } from 'react-router-dom';
+import { json, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-const CheckoutForm = ({ clientSecret }) => {
+const CheckoutForm = ({ clientSecret, ticketInfo }) => {
+  const CONFIRM_API_URL = "http://localhost:8080/payment/confirm"; 
     const stripe = useStripe();
     const elements = useElements();
     const [error, setError] = useState(null);
@@ -44,6 +46,11 @@ const CheckoutForm = ({ clientSecret }) => {
         setProcessing(false);
         navigate('/paymentfailed')
       } else if (paymentIntent.status === 'succeeded') {
+        axios.post(CONFIRM_API_URL, {
+          ticket_id : ticketInfo.id,
+          payment_capture : true,
+          payment_confirm_response : "response"
+        });
         setSuccess('Payment successful!');
         setError(null);
         setProcessing(false);

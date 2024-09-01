@@ -1,21 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './TicketDetails.css';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import { fetchData } from '../../../utils/ApiHandlers';
 
-const TicketDetails = ({tickInfo}) => {
-    const { user_name ,route} = tickInfo;
+const TicketDetails = ({ ticketInfo }) => {
+  const { user_name, route, type, purchase_time, fare, id } = ticketInfo;
+  const API_URL = `http://localhost:8080/payment/transaction/${id}`;
+  const [paymentTranscation, setPaymentTranscation] = useState([]);
 
-    const ticketData = {
-      userName: user_name ,
-      routeName: route,
-      ticketType: "Single",
-      peakHour: "Yes",
-      paymentStatus: "Confirmed",
-      paymentAmount: "$5.00",
-      transactionId: "1234567890",
-      date: "2024-08-30",
+  useEffect(() => {
+    const fetchPaymentTranscation = async () => {
+      try {
+        const data = await fetchData(API_URL);
+        setPaymentTranscation(data);
+      } catch (error) {
+        console.error(error.message);
+      }
     };
+
+    fetchPaymentTranscation();
+  }, []);
+
+  const ticketData = {
+    userName: user_name,
+    routeName: route,
+    ticketType: type,
+    paymentStatus: "Confirmed",
+    paymentAmount: "₹" + fare,
+    transactionId: paymentTranscation,
+    date: purchase_time,
+  };
 
   const hideButtons = () => {
     const buttons = document.querySelector('.download-buttons');
@@ -58,23 +73,22 @@ const TicketDetails = ({tickInfo}) => {
   return (
     <div className="ticket-details-container">
       <div id="ticket-details" className="ticket-details-card">
-        <h2>Ticket Details</h2>
+        <h2 className="ticket-heading">Your Metro Ticket</h2>
         <div className="ticket-info">
           <p><strong>Name:</strong> {ticketData.userName}</p>
           <p><strong>Route:</strong> {ticketData.routeName}</p>
           <p><strong>Ticket Type:</strong> {ticketData.ticketType}</p>
-          <p><strong>Peak Hour:</strong> {ticketData.peakHour}</p>
-          <p><strong>Date:</strong> {ticketData.date}</p>
+          <p><strong>Date of Purchase:</strong> {ticketData.date}</p>
         </div>
-        <h3>Payment Confirmation</h3>
+        <h3 className="payment-heading">Payment Details</h3>
         <div className="payment-info">
           <p><strong>Status:</strong> {ticketData.paymentStatus}</p>
-          <p><strong>Amount:</strong> {ticketData.paymentAmount}</p>
+          <p><strong>Amount Paid:</strong> {ticketData.paymentAmount}</p>
           <p><strong>Transaction ID:</strong> {ticketData.transactionId}</p>
         </div>
         <div className="download-buttons">
-          <button onClick={downloadPDF}>Download as PDF</button>
-          <button onClick={downloadImage}>Download as Image</button>
+          <button className="pdf-button" onClick={downloadPDF}>Download as PDF</button>
+          <button className="img-button" onClick={downloadImage}>Download as Image</button>
         </div>
       </div>
     </div>
