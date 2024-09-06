@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/metro_app_frontend/static/css/main.dd144193.css",
-    "main.js": "/metro_app_frontend/static/js/main.9c27cc6f.js",
-    "static/js/213.d511edd4.chunk.js": "/metro_app_frontend/static/js/213.d511edd4.chunk.js",
-    "static/js/732.cdd21469.chunk.js": "/metro_app_frontend/static/js/732.cdd21469.chunk.js",
-    "static/js/453.e7e1cb91.chunk.js": "/metro_app_frontend/static/js/453.e7e1cb91.chunk.js",
-    "static/media/mark-de-rooij-cojcf0qCfrE-unsplash.jpg": "/metro_app_frontend/static/media/mark-de-rooij-cojcf0qCfrE-unsplash.e4b21a917eeadb7faf4c.jpg",
-    "static/media/luca-bravo-h6m-mdRyFQw-unsplash.jpg": "/metro_app_frontend/static/media/luca-bravo-h6m-mdRyFQw-unsplash.73ea9986b6f4d30da96a.jpg",
-    "static/media/sava-bobov-nPc9sDIqyfI-unsplash.jpg": "/metro_app_frontend/static/media/sava-bobov-nPc9sDIqyfI-unsplash.a359a177633375742747.jpg",
-    "static/media/yves-moret-3vSGseoQj40-unsplash.jpg": "/metro_app_frontend/static/media/yves-moret-3vSGseoQj40-unsplash.8f7cb40b0da97d6add2b.jpg",
-    "static/media/pexels-eessoo-5098043.jpg": "/metro_app_frontend/static/media/pexels-eessoo-5098043.1d1d6487394fea0e2d2c.jpg",
-    "static/media/pexels-pixabay-258344.jpg": "/metro_app_frontend/static/media/pexels-pixabay-258344.97d994e693a99a8667ba.jpg",
-    "index.html": "/metro_app_frontend/index.html",
-    "main.dd144193.css.map": "/metro_app_frontend/static/css/main.dd144193.css.map",
-    "main.9c27cc6f.js.map": "/metro_app_frontend/static/js/main.9c27cc6f.js.map",
-    "213.d511edd4.chunk.js.map": "/metro_app_frontend/static/js/213.d511edd4.chunk.js.map",
-    "732.cdd21469.chunk.js.map": "/metro_app_frontend/static/js/732.cdd21469.chunk.js.map",
-    "453.e7e1cb91.chunk.js.map": "/metro_app_frontend/static/js/453.e7e1cb91.chunk.js.map"
+    "main.css": "/metro_app_frontend/login/static/css/main.4e7ce3e2.css",
+    "main.js": "/metro_app_frontend/login/static/js/main.4fdcadd4.js",
+    "static/js/213.d511edd4.chunk.js": "/metro_app_frontend/login/static/js/213.d511edd4.chunk.js",
+    "static/js/732.cdd21469.chunk.js": "/metro_app_frontend/login/static/js/732.cdd21469.chunk.js",
+    "static/js/453.e7e1cb91.chunk.js": "/metro_app_frontend/login/static/js/453.e7e1cb91.chunk.js",
+    "static/media/mark-de-rooij-cojcf0qCfrE-unsplash.jpg": "/metro_app_frontend/login/static/media/mark-de-rooij-cojcf0qCfrE-unsplash.e4b21a917eeadb7faf4c.jpg",
+    "static/media/luca-bravo-h6m-mdRyFQw-unsplash.jpg": "/metro_app_frontend/login/static/media/luca-bravo-h6m-mdRyFQw-unsplash.73ea9986b6f4d30da96a.jpg",
+    "static/media/sava-bobov-nPc9sDIqyfI-unsplash.jpg": "/metro_app_frontend/login/static/media/sava-bobov-nPc9sDIqyfI-unsplash.a359a177633375742747.jpg",
+    "static/media/yves-moret-3vSGseoQj40-unsplash.jpg": "/metro_app_frontend/login/static/media/yves-moret-3vSGseoQj40-unsplash.8f7cb40b0da97d6add2b.jpg",
+    "static/media/pexels-eessoo-5098043.jpg": "/metro_app_frontend/login/static/media/pexels-eessoo-5098043.1d1d6487394fea0e2d2c.jpg",
+    "static/media/pexels-pixabay-258344.jpg": "/metro_app_frontend/login/static/media/pexels-pixabay-258344.97d994e693a99a8667ba.jpg",
+    "index.html": "/metro_app_frontend/login/index.html",
+    "main.4e7ce3e2.css.map": "/metro_app_frontend/login/static/css/main.4e7ce3e2.css.map",
+    "main.4fdcadd4.js.map": "/metro_app_frontend/login/static/js/main.4fdcadd4.js.map",
+    "213.d511edd4.chunk.js.map": "/metro_app_frontend/login/static/js/213.d511edd4.chunk.js.map",
+    "732.cdd21469.chunk.js.map": "/metro_app_frontend/login/static/js/732.cdd21469.chunk.js.map",
+    "453.e7e1cb91.chunk.js.map": "/metro_app_frontend/login/static/js/453.e7e1cb91.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dd144193.css",
-    "static/js/main.9c27cc6f.js"
+    "static/css/main.4e7ce3e2.css",
+    "static/js/main.4fdcadd4.js"
   ]
 }
