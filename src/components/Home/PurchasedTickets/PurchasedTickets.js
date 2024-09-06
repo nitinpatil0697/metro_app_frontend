@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import TicketScreen from '../Ticket/TicketScreen';
 import './PurchasedTickets.css';
+import {fetchData} from '../../../utils/ApiHandlers';
 
 const PurchasedTickets = () => {
   const [username, setUsername] = useState('');
@@ -15,7 +15,7 @@ const PurchasedTickets = () => {
     const API_URL = `http://localhost:8080/vendingMachine/allTickets/${username}`;
     
     try {
-      const response = await axios.get(API_URL);
+      const response = await fetchData(API_URL);
       const tickets = response.data;
       setTicketData(tickets);
       setDisplayedTickets(tickets.slice(0, 10)); // Display only the first 10 tickets

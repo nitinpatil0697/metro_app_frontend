@@ -13,8 +13,8 @@ const MetroRoutes = () => {
   useEffect(() => {
     const getRoutes = async () => {
       try {
-        const data = await fetchData(API_URL);
-        setRoutes(data);
+        const responce = await fetchData(API_URL);
+        setRoutes(responce.data);
         setLoading(false);
       } catch (error) {
         setError(error.message);

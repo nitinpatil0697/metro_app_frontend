@@ -3,6 +3,8 @@ import axios from "axios";
 import TicketScreen from "../Ticket/TicketScreen";
 import "./GenerateTicket.css";
 import { Link } from "react-router-dom";
+import apiClient from "../../../utils/AxiosConfig";
+import { postData } from "../../../utils/ApiHandlers";
 
 const GenerateTicket = ({ticketInfo,setTicketInfo}) => {
   const API_URL = "http://localhost:8080/vendingMachine/generateTicket";
@@ -33,7 +35,7 @@ const GenerateTicket = ({ticketInfo,setTicketInfo}) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(API_URL, formData);
+      const response = await postData(API_URL, formData);
       setTicketInfo(response.data.result);
     } catch (error) {
       console.error("Error generating ticket:", error.message);

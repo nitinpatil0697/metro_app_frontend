@@ -5,6 +5,8 @@ import html2canvas from 'html2canvas';
 import { fetchData } from '../../../utils/ApiHandlers';
 
 const TicketDetails = ({ ticketInfo }) => {
+  console.log('TicketInfo')  
+  console.log(ticketInfo)
   const { user_name, route, type, purchase_time, fare, id } = ticketInfo;
   const API_URL = `http://localhost:8080/payment/transaction/${id}`;
   const [paymentTranscation, setPaymentTranscation] = useState([]);
@@ -12,15 +14,16 @@ const TicketDetails = ({ ticketInfo }) => {
   useEffect(() => {
     const fetchPaymentTranscation = async () => {
       try {
-        const data = await fetchData(API_URL);
-        setPaymentTranscation(data);
+        const response = await fetchData(API_URL);
+        setPaymentTranscation(response.data);
       } catch (error) {
         console.error(error.message);
       }
     };
 
     fetchPaymentTranscation();
-  }, []);
+  }, []
+  );
 
   const ticketData = {
     userName: user_name,

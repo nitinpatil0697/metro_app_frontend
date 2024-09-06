@@ -1,18 +1,51 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './Home.css';
 
 const Home = () => {
+  const [loggedInUser, setLoggedInUser] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Retrieve the username from localStorage
+    const storedUsername = localStorage.getItem('name');
+    if (storedUsername) {
+      setLoggedInUser(storedUsername);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    // Remove JWT and user info from localStorage
+    localStorage.removeItem('token');
+    localStorage.removeItem('name');
+    setLoggedInUser(null); // Clear the logged-in user
+    navigate('/'); // Redirect to login page
+  };
+
   return (
     <div className="home-background">
       <div className="home-container">
         <div className="header">
-          <Link to="/register">
-            <button className="auth-button">Register</button>
-          </Link>
-          <Link to="/login">
-            <button className="auth-button">Login</button>
-          </Link>
+          {loggedInUser ? (
+            <div className="user-info">
+              <div className="user-initial">
+                {loggedInUser.charAt(0).toUpperCase()}
+              </div>
+              <span className="username">{loggedInUser}</span>
+              <button className="logout-button" onClick={handleLogout}>
+                Logout
+              </button>
+            </div>
+          ) : (
+            <>
+              <Link to="/register">
+                <button className="auth-button">Register</button>
+              </Link>
+              <Link to="/login">
+                <button className="auth-button">Login</button>
+              </Link>
+            </>
+          )}
         </div>
         <h1 className="home-title">Metro Ticket Vending Portal</h1>
         <p className="home-info">
@@ -21,11 +54,11 @@ const Home = () => {
           and more. Explore the features by clicking the buttons below.
         </p>
         <div className="home-button-container">
-        <Link to="/metroroutes">
+          <Link to="/metroroutes">
             <button className="home-button">Metro Routes</button>
           </Link>
-          <Link to="/ticketfare">
-            <button className="home-button">Ticket Fare</button>
+          <Link to="/calculatefare">
+            <button className="home-button">Calculate Fare</button>
           </Link>
           <Link to="/purchasedTickets">
             <button className="home-button">Purchased Tickets</button>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { json, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { postData } from '../../../../utils/ApiHandlers';
 
 const CheckoutForm = ({ clientSecret, ticketInfo }) => {
   const CONFIRM_API_URL = "http://localhost:8080/payment/confirm"; 
@@ -46,7 +47,7 @@ const CheckoutForm = ({ clientSecret, ticketInfo }) => {
         setProcessing(false);
         navigate('/paymentfailed')
       } else if (paymentIntent.status === 'succeeded') {
-        axios.post(CONFIRM_API_URL, {
+        postData(CONFIRM_API_URL, {
           ticket_id : ticketInfo.id,
           payment_capture : true,
           payment_confirm_response : "response"

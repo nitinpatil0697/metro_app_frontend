@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios'; 
+
 import './Register.css';
+import { postData } from '../../../utils/ApiHandlers';
 
 const Register = () => {
 const API_URL = 'http://localhost:8080/user/register'
@@ -42,7 +43,7 @@ const API_URL = 'http://localhost:8080/user/register'
     }
   
     try {
-      const response = await axios.post(API_URL, formData);
+      const response = await postData(API_URL, formData);
       
       if (response.status === 201) {
         setSuccessMessage('Registration successful!');

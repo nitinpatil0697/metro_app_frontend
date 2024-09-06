@@ -12,6 +12,8 @@ import PaymentSuccess from './components/Home/GenerateTicket/Payment/PaymentSucc
 import PaymentFailed from './components/Home/GenerateTicket/Payment/PaymentFailed';
 import TicketDetails from './components/Home/GenerateTicket/TicketDetails';
 import { useState } from 'react';
+import CalculateFare from './components/Home/MetroRoutes/CalculateFare';
+import Login from './components/Home/Register/Login';
 
 function App() {
   const [ticket,setTicket]=useState()
@@ -22,6 +24,7 @@ function App() {
         <Route path='/register' element={<Register/>} />
         <Route path="/metroroutes" element={<MetroRoutes />} />
         <Route path="/ticketfare" element={<TicketFare />} />
+        <Route path="/calculatefare" element={<CalculateFare />} />
         <Route path="/users" element={<Users />} />
         <Route path="/generate" element={<Generate setTicketInfo={setTicket} ticketInfo={ticket}/>} />
         <Route path="/purchasedTickets" element={<PurchasedTickets />} />
@@ -29,6 +32,7 @@ function App() {
         <Route path="/paymentsuccess" element={<PaymentSuccess/>} />
         <Route path="/paymentfailed" element={<PaymentFailed/>} />
         <Route path="/ticket-details" element={<TicketDetails ticketInfo={ticket}/>} />
+        <Route path="/login" element={<Login/>}/>
       </Routes>
     </Router>
   );

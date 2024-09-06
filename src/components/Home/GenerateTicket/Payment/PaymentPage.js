@@ -5,6 +5,7 @@ import { Elements, CardElement, useStripe, useElements } from '@stripe/react-str
 import './PaymentPage.css';
 import CheckoutForm from './CheckoutForm';
 import { useLocation } from 'react-router-dom';
+import { postData } from '../../../../utils/ApiHandlers';
 // Initialize Stripe with your publishable key
 const stripePromise = loadStripe('pk_test_51BTUDGJAJfZb9HEBwDg86TN1KNprHjkfipXmEDMb0gSCassK5T3ZfxsAbcgKVmAIXF7oZ6ItlZZbXO6idTHE67IM007EwQ4uN3');
 
@@ -19,7 +20,7 @@ const PaymentPage = ({ticketInfo}) => {
 
   useEffect(() => {
     console.log("Calling initiate payment")
-    axios.post('http://localhost:8080/payment/initiate', {
+    postData('http://localhost:8080/payment/initiate', {
       amount: amount,
       currency: currency,
       ticket_details : ticketInfo
