@@ -18,6 +18,7 @@ const Home = () => {
     // Remove JWT and user info from localStorage
     localStorage.removeItem('token');
     localStorage.removeItem('name');
+    localStorage.removeItem('email');
     setLoggedInUser(null); // Clear the logged-in user
     navigate('/'); // Redirect to login page
   };
@@ -58,13 +59,10 @@ const Home = () => {
             <button className="home-button">Metro Routes</button>
           </Link>
           <Link to="/calculatefare">
-            <button className="home-button">Calculate Fare</button>
+            <button className="home-button">Book Ticket</button>
           </Link>
           <Link to="/purchasedTickets">
             <button className="home-button">Purchased Tickets</button>
-          </Link>
-          <Link to="/generate">
-            <button className="home-button">Generate Ticket</button>
           </Link>
         </div>
       </div>

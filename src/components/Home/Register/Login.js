@@ -17,11 +17,12 @@ const Login = () => {
             const response = await postData('http://localhost:8080/user/login', { email, password });
 
             // Assuming the token is returned in the response data as 'token'
-            const { token, name } = response.data.result;
+            const { token, name , userEmail } = response.data.result;
 
             // Save the token to localStorage
             localStorage.setItem('token', token);
             localStorage.setItem('name', name)
+            localStorage.setItem('email', userEmail)
 
             // Redirect or update UI after successful login
             console.log('Logged in successfully');

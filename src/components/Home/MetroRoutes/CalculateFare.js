@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import './CalculateFare.css';
-import { fetchData } from '../../../utils/ApiHandlers';
+import { fetchData, postData } from '../../../utils/ApiHandlers';
+import TicketScreen from '../Ticket/TicketScreen';
+import { useNavigate } from 'react-router-dom';
 
-const CalculateFare = () => {
+const CalculateFare = ({ticketInfo, setTicketInfo}) => {
   const [route, setRoute] = useState('');
   const [stations, setStations] = useState({});
   const [entryStation, setEntryStation] = useState('');
   const [destinationStation, setDestinationStation] = useState('');
   const [fare, setFare] = useState(null);
+  const [ticketType, setTicketType] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (route) {
       fetchData(`http://localhost:8080/vendingMachine/route/${route}`)
-        .then(
-          response => {
+        .then(response => {
           setStations(response.data);
         })
         .catch(error => {
@@ -37,11 +40,14 @@ const CalculateFare = () => {
     setDestinationStation(e.target.value);
   };
 
+  const handleTicketTypeChange = (e) => {
+    setTicketType(e.target.value);
+  };
+
   const calculateFare = () => {
     if (entryStation && destinationStation) {
-      fetchData(`http://localhost:8080/vendingMachine/calculatefare?start=${entryStation}&end=${destinationStation}`)
+      fetchData(`http://localhost:8080/vendingMachine/calculatefare?start=${entryStation}&end=${destinationStation}&ticket=${ticketType}`)
         .then(response => {
-            console.log(response.data)
           setFare(response.data);
         })
         .catch(error => {
@@ -49,6 +55,28 @@ const CalculateFare = () => {
         });
     } else {
       alert('Please select both Entry and Destination Stations');
+    }
+  };
+
+  const generateTicket = async () => {
+    const storedUsername = localStorage.getItem('email');
+    const API_URL = "http://localhost:8080/vendingMachine/generateTicket";
+    const formData = {
+      user_name: storedUsername,
+      route_name: route,
+      ticket_type: ticketType,
+      start_station: entryStation,
+      end_station: destinationStation,
+      peak_hour: false,
+    };
+
+    try {
+      const response = await postData(API_URL, formData);
+      setTicketInfo(response.data.result); 
+      console.log(response)
+      navigate("/ticketscreen")
+    } catch (error) {
+      console.error("Error generating ticket:", error.message);
     }
   };
 
@@ -61,6 +89,9 @@ const CalculateFare = () => {
           <option value="">--Select Line--</option>
           <option value="Red Line">Red Line</option>
           <option value="Blue Line">Blue Line</option>
+          <option value="Green Line">Green Line</option>
+          <option value="Yellow Line">Yellow Line</option>
+          <option value="Orange Line">Orange Line</option>
         </select>
       </div>
 
@@ -85,10 +116,19 @@ const CalculateFare = () => {
               ))}
             </select>
           </div>
+
+          <div className="calculate-fare-selection">
+              <label htmlFor="ticket-type">Select Ticket Type:</label>
+              <select id="ticket-type" value={ticketType} onChange={handleTicketTypeChange}>
+                <option value="">--Select Ticket Type--</option>
+                <option value="Single Ride">Single Ride</option>
+                <option value="Weekly Pass">Weekly Pass</option>
+              </select>
+            </div>
         </div>
       )}
 
-      {route && (
+      {route && fare === null &&(
         <button className="calculate-fare-button" onClick={calculateFare}>
           Calculate Fare
         </button>
@@ -98,6 +138,12 @@ const CalculateFare = () => {
         <div className="fare-display">
           <h2>Total Fare: ₹{fare}</h2>
         </div>
+      )}
+
+      {fare && (
+        <button className="calculate-fare-button" onClick={generateTicket}>
+          Generate Ticket
+        </button>
       )}
     </div>
   );

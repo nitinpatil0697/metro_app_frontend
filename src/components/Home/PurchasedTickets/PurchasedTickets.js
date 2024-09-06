@@ -8,6 +8,7 @@ const PurchasedTickets = () => {
   const [ticketData, setTicketData] = useState([]);
   const [displayedTickets, setDisplayedTickets] = useState([]);
   const [loading, setLoading] = useState(false);
+ 
 
   const handleSubmit = async (e) => {
     e.preventDefault();

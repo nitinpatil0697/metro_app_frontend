@@ -79,3 +79,30 @@ select:focus {
   color: #2c3e50;
   font-weight: bold;
 }
+
+.fare-display {
+  background-color: #f0f8ff; /* Light blue background */
+  border: 2px solid #00aaff; /* Blue border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px; /* Padding around the content */
+  text-align: center; /* Center text alignment */
+  margin-top: 20px; /* Space above the fare display */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.fare-display h2 {
+  color: #0077ff; /* Blue color for the fare amount */
+  font-size: 24px; /* Larger font size for prominence */
+  margin: 0; /* Remove default margin */
+  font-weight: bold; /* Bold text for emphasis */
+}
+
+@media (max-width: 600px) {
+  .fare-display {
+    padding: 15px; /* Reduce padding on smaller screens */
+  }
+
+  .fare-display h2 {
+    font-size: 20px; /* Adjust font size for smaller screens */
+  }
+}
