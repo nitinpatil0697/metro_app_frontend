@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/metro_app_frontend/login/static/css/main.4e7ce3e2.css",
-    "main.js": "/metro_app_frontend/login/static/js/main.4fdcadd4.js",
+    "main.js": "/metro_app_frontend/login/static/js/main.2b0e4524.js",
     "static/js/213.d511edd4.chunk.js": "/metro_app_frontend/login/static/js/213.d511edd4.chunk.js",
     "static/js/732.cdd21469.chunk.js": "/metro_app_frontend/login/static/js/732.cdd21469.chunk.js",
     "static/js/453.e7e1cb91.chunk.js": "/metro_app_frontend/login/static/js/453.e7e1cb91.chunk.js",
@@ -13,13 +13,13 @@
     "static/media/pexels-pixabay-258344.jpg": "/metro_app_frontend/login/static/media/pexels-pixabay-258344.97d994e693a99a8667ba.jpg",
     "index.html": "/metro_app_frontend/login/index.html",
     "main.4e7ce3e2.css.map": "/metro_app_frontend/login/static/css/main.4e7ce3e2.css.map",
-    "main.4fdcadd4.js.map": "/metro_app_frontend/login/static/js/main.4fdcadd4.js.map",
+    "main.2b0e4524.js.map": "/metro_app_frontend/login/static/js/main.2b0e4524.js.map",
     "213.d511edd4.chunk.js.map": "/metro_app_frontend/login/static/js/213.d511edd4.chunk.js.map",
     "732.cdd21469.chunk.js.map": "/metro_app_frontend/login/static/js/732.cdd21469.chunk.js.map",
     "453.e7e1cb91.chunk.js.map": "/metro_app_frontend/login/static/js/453.e7e1cb91.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4e7ce3e2.css",
-    "static/js/main.4fdcadd4.js"
+    "static/js/main.2b0e4524.js"
   ]
 }
