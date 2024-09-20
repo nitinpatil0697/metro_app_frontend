@@ -64,6 +64,9 @@ const Home = () => {
           <Link to="/purchasedTickets">
             <button className="home-button">Purchased Tickets</button>
           </Link>
+          <Link to="/about">
+            <button className="home-button">About</button>
+          </Link>
         </div>
       </div>
     </div>
