@@ -1,0 +1,96 @@
+/* src/About.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full-screen height */
+  }
+  
+  .about-container {
+    position: fixed; /* Fixed position for the container */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the container */
+    width: 70%; /* Adjust width as needed */
+    height: 80vh; /* Adjust height as needed */
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+    padding: 20px;
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    backdrop-filter: blur(10px); /* Optional glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+  }
+  
+  .about-block {
+    background: #ececec;
+    margin-bottom: 20px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05); /* Softer shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+  }
+  
+  .about-block:hover {
+    transform: translateY(-8px); /* Slight lift on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* More shadow on hover */
+  }
+  
+  .about-block h2 {
+    font-family: 'Poppins', sans-serif; /* Stylish font for headings */
+    font-size: 1.8em; /* Slightly larger heading size */
+    font-weight: 600; /* Bolder font weight */
+    color: #333;
+    margin-bottom: 10px;
+    border-bottom: 3px solid #ff6347; /* Thicker bottom border */
+    padding-bottom: 8px;
+  }
+  
+  .about-block p, .about-block ul {
+    font-size: 1.1em;
+    font-weight: 400; /* Regular font weight for body text */
+    line-height: 1.8; /* Increased line-height for readability */
+    color: #555; /* Softer text color */
+    margin: 15px 0;
+  }
+  
+  .about-block ul {
+    padding-left: 20px;
+    list-style-type: disc;
+  }
+  
+  .about-block ul li {
+    margin-bottom: 10px;
+  }
+  
+  .about-container a {
+    color: #ff6347;
+    font-weight: 500; /* Slightly bolder links */
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for links */
+  }
+  
+  .about-container a:hover {
+    color: #e55342;
+    transform: scale(1.05); /* Slightly enlarges on hover */
+  }
+  
+  @media (max-width: 768px) {
+    .about-container {
+      width: 90%; /* Adjust width for smaller screens */
+      height: 70vh; /* Adjust height for smaller screens */
+    }
+  
+    .about-block h2 {
+      font-size: 1.6em; /* Slightly smaller headings */
+    }
+  
+    .about-block p, .about-block ul {
+      font-size: 1em; /* Slightly smaller text */
+    }
+  }
+  

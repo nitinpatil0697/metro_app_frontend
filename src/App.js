@@ -14,6 +14,7 @@ import { useState } from 'react';
 import CalculateFare from './components/Home/MetroRoutes/CalculateFare';
 import Login from './components/Home/Register/Login';
 import TicketScreen from './components/Home/Ticket/TicketScreen';
+import About from './components/Home/About/About';
 
 function App() {
   const [ticket,setTicket]=useState()
@@ -33,6 +34,7 @@ function App() {
         <Route path="/paymentfailed" element={<PaymentFailed/>} />
         <Route path="/ticket-details" element={<TicketDetails ticketInfo={ticket}/>} />
         <Route path="/login" element={<Login/>}/>
+        <Route path="/about" element={<About/>}/>
       </Routes>
     </Router>
   );
