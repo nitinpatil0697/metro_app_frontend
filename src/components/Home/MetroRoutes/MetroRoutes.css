@@ -7,7 +7,7 @@ html, body {
 
 .routes-container {
   position: relative; /* Position relative to use the pseudo-element */
-  min-height: 100vh; /* Ensure it covers the full height of the viewport */
+   /* Ensure it covers the full height of the viewport */
   display: flex;
   flex-direction: column;
   justify-content: center; /* Center content vertically */
@@ -15,7 +15,6 @@ html, body {
   padding: 20px;
   color: #ffffff; /* Default text color for readability */
   overflow: hidden; /* Hide anything outside the container */
-  background-image: url('E:\Career\React\metro-ticket-vending\public\images\pexels-pixabay-258344.jpg'); /* Replace with your actual image path */
   background-size: cover; /* Ensure the image covers the entire container */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Prevent the image from repeating */
