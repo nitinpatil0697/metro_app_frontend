@@ -9,7 +9,6 @@ import apiClient from './AxiosConfig';
 export const fetchData = async (url) => {
   try {
     const response = await apiClient(url);
-    console.log(response)
     return response;
   } catch (error) {
     throw new Error('Failed to fetch data: ' + error.message);

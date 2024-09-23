@@ -2,7 +2,6 @@ import React from 'react';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home/Home';
 import TicketFare from './components/Home/TicketFare/TicketFare';
-import Users from './components/Home/Users/Users';
 import MetroRoutes from './components/Home/MetroRoutes/MetroRoutes';
 import PurchasedTickets from './components/Home/PurchasedTickets/PurchasedTickets';
 import Register from './components/Home/Register/Register';
@@ -15,6 +14,9 @@ import CalculateFare from './components/Home/MetroRoutes/CalculateFare';
 import Login from './components/Home/Register/Login';
 import TicketScreen from './components/Home/Ticket/TicketScreen';
 import About from './components/Home/About/About';
+import AdminDashboard from './components/Home/Admin/AdminDashboard';
+import UserTable from './components/Home/Admin/Grid/UserTable';
+import TicketFareTable from './components/Home/Admin/Grid/TicketFareTable';
 
 function App() {
   const [ticket,setTicket]=useState()
@@ -26,7 +28,6 @@ function App() {
         <Route path="/metroroutes" element={<MetroRoutes />} />
         <Route path="/ticketfare" element={<TicketFare />} />
         <Route path="/calculatefare" element={<CalculateFare ticketInfo={ticket} setTicketInfo={setTicket}/>} />
-        <Route path="/users" element={<Users />} />
         <Route path="/ticketscreen" element={<TicketScreen ticketInfo={ticket}/>} />
         <Route path="/purchasedTickets" element={<PurchasedTickets />} />
         <Route path="/paymentinitiate" element={<PaymentPage ticketInfo={ticket} />} />
@@ -35,6 +36,9 @@ function App() {
         <Route path="/ticket-details" element={<TicketDetails ticketInfo={ticket}/>} />
         <Route path="/login" element={<Login/>}/>
         <Route path="/about" element={<About/>}/>
+        <Route path="/admindashboard" element={<AdminDashboard/>}/>
+        <Route path="/users" element={<UserTable />} />
+        <Route path="/ticketfaretable" element={<TicketFareTable />} />
       </Routes>
     </Router>
   );

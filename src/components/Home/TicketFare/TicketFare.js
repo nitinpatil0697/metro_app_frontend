@@ -25,7 +25,7 @@ const TicketFare = () => {
       <div className="fare-container">
         <h2 className="fare-title">Metro Ticket Fares</h2>
         <div className="fare-list">
-          {fares.map((fare) => (
+          {fares?.map((fare) => (
             <div key={fare.id} className="fare-item">
               <h3 className="route-name">{fare.route_name}</h3>
               <p className="ticket-type">{fare.ticket_type}</p>
