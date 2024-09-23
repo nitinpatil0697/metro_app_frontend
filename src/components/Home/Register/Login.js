@@ -17,7 +17,7 @@ const Login = () => {
             const response = await postData('http://localhost:8080/user/login', { email, password });
 
             // Assuming the token is returned in the response data as 'token'
-            const { token, name , userEmail } = response.data.result;
+            const { token, name , userEmail , role } = response.data.result;
 
             // Save the token to localStorage
             localStorage.setItem('token', token);
@@ -26,7 +26,11 @@ const Login = () => {
 
             // Redirect or update UI after successful login
             console.log('Logged in successfully');
-            navigate('/');
+
+            if (role === 'admin') {
+                navigate('/admindashboard');
+            }
+            navigate('/admindashboard');
             // You can use `window.location` to redirect or update state to navigate
         } catch (err) {
             setError('Login failed. Please check your credentials.');
