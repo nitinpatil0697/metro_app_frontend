@@ -3,6 +3,7 @@ import { fetchData } from '../../../../utils/ApiHandlers';
 import { AgGridReact } from 'ag-grid-react'; // React Data Grid Component
 import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the Data Grid
 import "ag-grid-community/styles/ag-theme-quartz.css"; // Optional Theme applied to the Data Grid
+import { Button } from '@mui/material';
 
 const UserTable = () => {
 
@@ -33,7 +34,33 @@ const UserTable = () => {
     { headerName : "Email", field: "email" },
     { headerName : "Phone", field: "phone" },
     { headerName : "Role", field: "role" },
-    { headerName : "Enabled", field: "enabled" }
+    { headerName : "Enabled", field: "enabled" },
+    {
+      headerName: "Actions", field: "id", 
+      cellRenderer: (params) => {
+        // Render buttons using the React component or plain HTML
+        return (
+          <div>
+            <Button
+              variant="contained"
+              color="primary"
+             // onClick={() => handleUpdate(params.data)}
+            >
+              Update
+            </Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              //onClick={() => handleDelete(params.data)}
+              style={{ marginLeft: '5px' }}
+            >
+              Delete
+            </Button>
+          </div>
+        );
+      },
+      width: 200,
+    },
   ]);
 
 
