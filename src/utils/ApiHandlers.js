@@ -31,3 +31,13 @@ export const postData = async (url, request) => {
     throw new Error('Failed to fetch data: ' + error.message);
   }
 };
+
+
+export const putData = async (url, request) => {
+  try {
+    const response = await apiClient.put(url, request);
+    return response;
+  } catch (error) {
+    throw new Error('Failed to fetch data: ' + error.message);
+  }
+};
