@@ -4,7 +4,7 @@ import { AgGridReact } from 'ag-grid-react';
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
 import { Button } from '@mui/material';
-import UpdateModal from './UpdateModal'; // Import the UpdateModal
+import UpdateTicketFareModal from './UpdateTicketFareModal';
 
 const TicketFareTable = () => {
   const API_URL = 'http://localhost:8080/vendingMachine/allTicketFare';
@@ -98,7 +98,7 @@ const TicketFareTable = () => {
         />
       )}
       {isModalOpen && (
-        <UpdateModal
+        <UpdateTicketFareModal
           fare={selectedFare}
           onClose={() => setIsModalOpen(false)}
           onSave={handleSave}

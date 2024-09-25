@@ -16,7 +16,7 @@ const style = {
   p: 4,
 };
 
-const UpdateModal = ({ fare, onClose, onSave }) => {
+const UpdateTicketFareModal = ({ fare, onClose, onSave }) => {
   const [formData, setFormData] = useState({ ...fare });
 
   const handleChange = (e) => {
@@ -116,4 +116,4 @@ const UpdateModal = ({ fare, onClose, onSave }) => {
   );
 };
 
-export default UpdateModal;
+export default UpdateTicketFareModal;
