@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchData , putData} from '../../../../utils/ApiHandlers';
+import { fetchData , putData, deleteData} from '../../../../utils/ApiHandlers';
 import { AgGridReact } from 'ag-grid-react'; // React Data Grid Component
 import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the Data Grid
 import "ag-grid-community/styles/ag-theme-quartz.css"; // Optional Theme applied to the Data Grid
@@ -10,6 +10,7 @@ const UserTable = () => {
 
   const API_URL = 'http://localhost:8080/user/allUsers';
   const [users, setUsers] = useState([]);
+  const [tempState, setTempState] = useState([]);
   const pagination = true;
   const paginationPageSize = 10;
   const paginationPageSizeSelector = [10, 20, 50];
@@ -17,12 +18,20 @@ const UserTable = () => {
   const [selectedUser, setSelectedUser] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+
+
+  useEffect(()=>{
+
+  },[users,tempState])
+
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const response = await fetchData(API_URL);
         setUsers(response.data);
-        console.log(users)
+        setTempState(response.data)
+        
+        // console.log(users)
       } catch (error) {
         console.error(error.message);
       }
@@ -35,10 +44,10 @@ const UserTable = () => {
     { headerName : "Id", field: "id" },
     { headerName : "First Name", field: "first_name" },
     { headerName : "Last Name", field: "last_name" },
-    { headerName : "Email", field: "email" },
-    { headerName : "Phone", field: "phone" },
-    { headerName : "Role", field: "role" },
-    { headerName : "Enabled", field: "enabled" },
+    // { headerName : "Email", field: "email" },
+    // { headerName : "Phone", field: "phone" },
+    // { headerName : "Role", field: "role" },
+    // { headerName : "Enabled", field: "enabled" },
     {
       headerName: "Actions", field: "id", 
       cellRenderer: (params) => {
@@ -86,8 +95,22 @@ const UserTable = () => {
     }
   };
 
-  const handleDelete = (data) => {
-    console.log('Delete Ticket User', data);
+  const handleDelete = async (data) => {
+    try {
+      console.log("handleDelete clicked");
+      console.log(tempState);
+      if(users.length == 0) return
+      const response = await deleteData(`http://localhost:8080/user/deleteUser/${data.id}`);
+      console.log(response.data);
+      if (response.data.status == "success") {
+        let tempUser = JSON.parse(JSON.stringify(users))
+        setUsers(tempUser.filter((user) => user.id !== data.id));
+      } else {
+        console.error('Failed to delete ticket User');
+      }
+    } catch (error) {
+      console.error('Error updating user:', error);
+    }
   };
 
 
