@@ -41,3 +41,12 @@ export const putData = async (url, request) => {
     throw new Error('Failed to fetch data: ' + error.message);
   }
 };
+
+export const deleteData = async (url) => {
+  try {
+    const response = await apiClient.delete(url);
+    return response;
+  } catch (error) {
+    throw new Error('Failed to delete data: ' + error.message);
+  }
+};

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchData, putData } from '../../../../utils/ApiHandlers';
+import { fetchData, putData, deleteData } from '../../../../utils/ApiHandlers';
 import { AgGridReact } from 'ag-grid-react';
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
@@ -36,8 +36,8 @@ const TicketFareTable = () => {
     { headerName: "Fare", field: "fare" },
     { headerName: "Start Code", field: "start_code" },
     { headerName: "End code", field: "end_code" },
-    { headerName: "Slot Start", field: "Slot Start" },
-    { headerName: "Slot End", field: "Slot End" },
+    // { headerName: "Slot Start", field: "Slot Start" },
+    // { headerName: "Slot End", field: "Slot End" },
     {
       headerName: "Actions",
       cellRenderer: (params) => (
@@ -82,8 +82,18 @@ const TicketFareTable = () => {
     }
   };
 
-  const handleDelete = (data) => {
-    console.log('Delete Ticket Fare', data);
+  const handleDelete = async (data) => {
+    try {
+      const response = await deleteData(`http://localhost:8080/vendingMachine/updateTicketFare/${data.id}`);
+      console.log(response.data);
+      if (response.data.status == "success") {
+        setFares(fares.filter((fare) => fare.id !== data.id));
+      } else {
+        console.error('Failed to delete ticket fare');
+      }
+    } catch (error) {
+      console.error('Error updating user:', error);
+    }
   };
 
   return (
