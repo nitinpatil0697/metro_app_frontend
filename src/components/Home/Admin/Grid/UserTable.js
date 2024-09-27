@@ -10,28 +10,18 @@ const UserTable = () => {
 
   const API_URL = 'http://localhost:8080/user/allUsers';
   const [users, setUsers] = useState([]);
-  const [tempState, setTempState] = useState([]);
-  const pagination = true;
-  const paginationPageSize = 10;
-  const paginationPageSizeSelector = [10, 20, 50];
-
   const [selectedUser, setSelectedUser] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-
-
-  useEffect(()=>{
-
-  },[users,tempState])
+  const pagination = true;
+  const paginationPageSize = 10;
+  const paginationPageSizeSelector = [10, 20, 50];
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const response = await fetchData(API_URL);
-        setUsers(response.data);
-        setTempState(response.data)
-        
-        // console.log(users)
+        setUsers(response.data);        
       } catch (error) {
         console.error(error.message);
       }
@@ -44,14 +34,13 @@ const UserTable = () => {
     { headerName : "Id", field: "id" },
     { headerName : "First Name", field: "first_name" },
     { headerName : "Last Name", field: "last_name" },
-    // { headerName : "Email", field: "email" },
-    // { headerName : "Phone", field: "phone" },
-    // { headerName : "Role", field: "role" },
-    // { headerName : "Enabled", field: "enabled" },
+    { headerName : "Email", field: "email" },
+    { headerName : "Phone", field: "phone" },
+    { headerName : "Role", field: "role" },
+    { headerName : "Enabled", field: "enabled" },
     {
       headerName: "Actions", field: "id", 
       cellRenderer: (params) => {
-        // Render buttons using the React component or plain HTML
         return (
           <div>
             <Button
@@ -98,13 +87,10 @@ const UserTable = () => {
   const handleDelete = async (data) => {
     try {
       console.log("handleDelete clicked");
-      console.log(tempState);
-      if(users.length == 0) return
       const response = await deleteData(`http://localhost:8080/user/deleteUser/${data.id}`);
       console.log(response.data);
       if (response.data.status == "success") {
-        let tempUser = JSON.parse(JSON.stringify(users))
-        setUsers(tempUser.filter((user) => user.id !== data.id));
+        setUsers(users.filter((user) => user.id !== data.id));
       } else {
         console.error('Failed to delete ticket User');
       }

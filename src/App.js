@@ -17,6 +17,7 @@ import About from './components/Home/About/About';
 import AdminDashboard from './components/Home/Admin/AdminDashboard';
 import UserTable from './components/Home/Admin/Grid/UserTable';
 import TicketFareTable from './components/Home/Admin/Grid/TicketFareTable';
+import PaymentTransactionTable from './components/Home/Admin/Grid/PaymentTransactionTable';
 
 function App() {
   const [ticket,setTicket]=useState()
@@ -39,6 +40,7 @@ function App() {
         <Route path="/admindashboard" element={<AdminDashboard/>}/>
         <Route path="/users" element={<UserTable />} />
         <Route path="/ticketfaretable" element={<TicketFareTable />} />
+        <Route path="/paymentdetails" element={<PaymentTransactionTable />} />
       </Routes>
     </Router>
   );

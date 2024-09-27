@@ -9,13 +9,13 @@ const AdminDashboard = () => {
       <h1>Admin Dashboard</h1>
       <div className="button-container">
         <Link to="/users">
-          <button className="dashboard-button">User Table</button>
+          <button className="dashboard-button">Users</button>
         </Link>
-        <Link to="/routes">
-          <button className="dashboard-button">Route Table</button>
+        <Link to="/paymentdetails">
+          <button className="dashboard-button">Payment Transactions</button>
         </Link>
         <Link to="/ticketfaretable">
-          <button className="dashboard-button">Ticket Table</button>
+          <button className="dashboard-button">Ticket Fare</button>
         </Link>
       </div>
     </div>
