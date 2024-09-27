@@ -7,7 +7,6 @@ import "ag-grid-community/styles/ag-theme-quartz.css";
 const PaymentTransactionTable = () => {
   const API_URL = 'http://localhost:8080/payment/transaction/all';
   const [payment, setpayments] = useState([]);
-
   const pagination = true;
   const paginationPageSize = 10;
   const paginationPageSizeSelector = [10, 20, 50];
