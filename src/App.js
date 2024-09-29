@@ -18,6 +18,7 @@ import AdminDashboard from './components/Home/Admin/AdminDashboard';
 import UserTable from './components/Home/Admin/Grid/UserTable';
 import TicketFareTable from './components/Home/Admin/Grid/TicketFareTable';
 import PaymentTransactionTable from './components/Home/Admin/Grid/PaymentTransactionTable';
+import MetroMap from './components/Home/Map/MetroMap';
 
 function App() {
   const [ticket,setTicket]=useState()
@@ -41,6 +42,8 @@ function App() {
         <Route path="/users" element={<UserTable />} />
         <Route path="/ticketfaretable" element={<TicketFareTable />} />
         <Route path="/paymentdetails" element={<PaymentTransactionTable />} />
+        <Route path="/metromap" element={<MetroMap />} />
+
       </Routes>
     </Router>
   );
