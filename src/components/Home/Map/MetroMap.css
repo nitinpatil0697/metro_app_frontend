@@ -1,0 +1,42 @@
+/* Map container styles */
+.map-container {
+    text-align: center;
+    padding: 25px;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
+    border-radius: 10px;
+  }
+
+  /* Title styling */
+  .map-title {
+    font-size: 40px; /* Title font size */
+    font-weight: bold; /* Bold title */
+    color: rgb(255, 255, 255); /* Dark gray for title */
+    margin-bottom: 25px; /* Space below title */
+  }
+  
+  /* Dropdown container styles */
+  .dropdown-container {
+    margin-bottom: 15px;
+      }
+  
+  /* Dropdown styles */
+  .station-dropdown {
+    padding: 10px; /* Padding inside the dropdown */
+    font-size: 16px; /* Font size for dropdown */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #007bff; /* Blue border */
+    cursor: pointer; /* Pointer cursor */
+    transition: border-color 0.3s; /* Transition effect for border color */
+  }
+  
+  /* Dropdown hover effect */
+  .station-dropdown:hover {
+    border-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* Map styling */
+  .leaflet-container {
+    border-radius: 5px; /* Rounded corners for the map */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for the map */
+  }
+  
