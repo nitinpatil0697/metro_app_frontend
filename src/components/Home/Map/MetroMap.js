@@ -83,7 +83,7 @@ const MetroMap = () => {
       </div>
       <MapContainer
         center={position}
-        zoom={12}
+        zoom={11}
         style={{ height: "500px", width: "1000px" }}
       >
         <TileLayer
